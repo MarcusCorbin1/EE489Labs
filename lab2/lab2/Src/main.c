@@ -107,7 +107,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-	printf("\n\rFreeRTOS Lab 1\n\r");
+	printf("\n\rFreeRTOS Lab 2\n\r");
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
