@@ -44,8 +44,8 @@
 /* Private variables ---------------------------------------------------------*/
 UART_HandleTypeDef huart1;
 
-osThreadId Thread1Handle;
-osThreadId Thread2Handle;
+osThreadId thread1Handle;
+osThreadId thread2Handle;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -73,7 +73,6 @@ PUTCHAR_PROTOTYPE
 
   return ch;
 }
-
 /* USER CODE END 0 */
 
 /**
@@ -107,7 +106,7 @@ int main(void)
   MX_GPIO_Init();
   MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
-	printf("\n\rFreeRTOS Lab 2\n\r");
+	printf("\n\rFreeRTOS Lab 3\n\r");
   /* USER CODE END 2 */
 
   /* USER CODE BEGIN RTOS_MUTEX */
@@ -127,13 +126,13 @@ int main(void)
   /* USER CODE END RTOS_QUEUES */
 
   /* Create the thread(s) */
-  /* definition and creation of Thread1 */
-  osThreadDef(Thread1, ThreadFunc, osPriorityNormal, 0, 128);
-  Thread1Handle = osThreadCreate(osThread(Thread1), (void*)pcTextForThread1);
+  /* definition and creation of thread1 */
+  osThreadDef(thread1, ThreadFunc, osPriorityNormal, 0, 128);
+  thread1Handle = osThreadCreate(osThread(thread1), (void*)pcTextForThread1);
 
-  /* definition and creation of Thread2 */
-  osThreadDef(Thread2, ThreadFunc, osPriorityNormal, 0, 128);
-  Thread2Handle = osThreadCreate(osThread(Thread2), (void*)pcTextForThread2);
+  /* definition and creation of thread2 */
+  osThreadDef(thread2, ThreadFunc, osPriorityAboveNormal, 0, 128);
+  thread2Handle = osThreadCreate(osThread(thread2), (void*)pcTextForThread2);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
@@ -500,7 +499,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN Header_ThreadFunc */
 /**
-  * @brief  Function implementing the Thread1 thread.
+  * @brief  Function implementing the thread1 thread.
   * @param  argument: Not used 
   * @retval None
   */
@@ -508,7 +507,7 @@ static void MX_GPIO_Init(void)
 void ThreadFunc(void const * argument)
 {
   /* USER CODE BEGIN 5 */
-	volatile unsigned long ul;
+  volatile unsigned long ul;
   /* Infinite loop */
   for(;;)
   {
