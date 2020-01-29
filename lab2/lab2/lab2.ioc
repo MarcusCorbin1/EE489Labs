@@ -1,7 +1,7 @@
 #MicroXplorer Configuration settings - do not modify
 FREERTOS.FootprintOK=true
 FREERTOS.IPParameters=Tasks01,FootprintOK
-FREERTOS.Tasks01=Thread1,0,128,ThreadFunc,Default,(void*)pcTextForThread1,Dynamic,NULL,NULL;Thread2,0,128,ThreadFunc,Default,(void*)pcTextForThread2,Dynamic,NULL,NULL
+FREERTOS.Tasks01=Thread1,0,128,ThreadFunc,Default,(void*)pcTextForThread1,Dynamic,NULL,NULL;Thread2,1,128,ThreadFunc,Default,(void*)pcTextForThread2,Dynamic,NULL,NULL
 File.Version=6
 KeepUserPlacement=false
 Mcu.Family=STM32L4
